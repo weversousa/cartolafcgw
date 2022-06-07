@@ -99,11 +99,20 @@ def config(app):
                 except Exception as e:
                     print(e)
 
+    def escc():
+        cfc = CartolaFC(app.config['X_GLB_TOKEN'])
+        for t in cfc.liga('gw-altino-fc')['times']:
+            u = Usuario.query.get(t['time_id'])
+            u.url_escudp = t['url_escudo_svg']
+        db.session.commit()
+
+
     for command in [
         create_db,
         drop_db,
         insert_values_in_usuarios,
         insert_values_in_rodadas,
-        insert_values_in_pontos
+        insert_values_in_pontos,
+        escc
     ]:
         app.cli.add_command(app.cli.command()(command))

@@ -32,19 +32,18 @@ def config(app):
 
     @app.route('/dashboard')
     def dashboard():
-        # context = {
-        #     'title': 'Dashboard',
-        #     'rankin_liga': [
-        #         {
-        #             'total': usuario.total,
-        #             'posicao': f'{n}º',
-        #             'time_nome': usuario.time_nome,
-        #             'primeiro_nome': usuario.primeiro_nome,
-        #             'segundo_nome': usuario.segundo_nome,
-        #             'url_escudo': usuario.url_escudo,
-        #         }
-        #         for n, usuario in enumerate(RankingLigaView.query.all(), 1)
-        #     ]
-        # }
-        # return render_template('dashboard.html', **context)
-        return 'oiiiii'
+        context = {
+            'title': 'Dashboard',
+            'rankin_liga': [
+                {
+                    'total': usuario.total,
+                    'posicao': f'{n}º',
+                    'time_nome': usuario.time_nome,
+                    'primeiro_nome': usuario.primeiro_nome,
+                    'segundo_nome': usuario.segundo_nome,
+                    'url_escudo': usuario.url_escudo,
+                }
+                for n, usuario in enumerate(RankingLigaView.query.all(), 1)
+            ]
+        }
+        return render_template('dashboard.html', **context)
