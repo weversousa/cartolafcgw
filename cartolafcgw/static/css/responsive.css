@@ -15,39 +15,52 @@
         flex-direction: column;
         align-items: center;
         justify-content: space-evenly;
-        background-color: aqua;
     }
 
     main .mes {
         height: 25%;
         width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
     }
 
     main .mito {
         height: 25%;
         width: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     main .turno {
         height: 25%;
         width: 100%;
-        background-color: bisque;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .carousel {
-        height: 80%;
-        width: 85%;
+        height: 65%;
+        width: 60%;
 
         display: flex;
         overflow: hidden;
     }
 
+    .mes .carousel input,
     .liga .carousel input {
         display: none;
     }
 
+    .mes .divLabel,
     .liga .divLabel {
-        width: 85%;
+        width: 60%;
         display: flex;
         justify-content: space-evenly;
     }
@@ -60,7 +73,7 @@
         justify-content: center;
         border: 1px solid var(--primary);
         border-radius: 50%;
-        transition: all 1.0s;
+        transition: all 1.4s;
         cursor: pointer;
     }
 
@@ -70,29 +83,37 @@
         width: 0.5rem;
         background-color: var(--primary);
         border-radius: 50%;
-        transition: all 1.0s;
+        transition: all 1.4s;
     }
 
+    #inputMes1:checked ~ #cardMes1,
     #inputRadio1:checked ~ #img1 {
         left: 0;
-        transition: all 1.0s;
-    }
-    
-    #inputRadio2:checked ~ #img1 {
-        margin-left: -100%;
-        transition: all 1.0s;
-    }
-    
-    #inputRadio3:checked ~ #img1 {
-        margin-left: -200%;
-        transition: all 1.0s;
+        transition: all 1.4s;
     }
 
+    #inputMes2:checked ~ #cardMes1,
+    #inputRadio2:checked ~ #img1 {
+        margin-left: -100%;
+        transition: all 1.4s;
+    }
+
+    #inputMes3:checked ~ #cardMes1,
+    #inputRadio3:checked ~ #img1 {
+        margin-left: -200%;
+        transition: all 1.4s;
+    }
+
+    #inputMes4:checked ~ #cardMes1,
     #inputRadio4:checked ~ #img1 {
         margin-left: -300%;
-        transition: all 1.0s;
+        transition: all 1.4s;
     }
-    
+
+    #inputMes1:checked ~ div label[for='inputMes1']:after,
+    #inputMes2:checked ~ div label[for='inputMes2']:after,
+    #inputMes3:checked ~ div label[for='inputMes3']:after,
+    #inputMes4:checked ~ div label[for='inputMes4']:after,
     #inputRadio1:checked ~ div label[for='inputRadio1']:after,
     #inputRadio2:checked ~ div label[for='inputRadio2']:after,
     #inputRadio3:checked ~ div label[for='inputRadio3']:after,
@@ -105,6 +126,7 @@
         transition: all 1.4s;
     }
 
+    .mes .carousel .c-card,
     .liga .carousel .c-card {
         height: 100%;
         width: 100%;
@@ -117,6 +139,21 @@
         flex-shrink: 0;
     }
 
+    .mito .c-card,
+    .turno .c-card {
+        height: 65%;
+        width: 60%;
+        border-radius: 0 0 0.7rem 0.7rem;
+        background-color: #fff;
+        box-shadow: 0 0 0.9rem 0.1rem rgba(0, 0, 0, 0.3);
+
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+    }
+
+
+    .mes .carousel .c-card .c-card__title,
     .liga .carousel .c-card .c-card__title {
         height: 20%;
 
@@ -128,6 +165,19 @@
         box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.3);
     }
 
+    .mito .c-card .c-card__title,
+    .turno .c-card .c-card__title {
+        height: 20%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-size: 0.6rem;
+        box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.3);
+    }
+
+    .mes .carousel .c-card .c-card__body,
     .liga .carousel .c-card .c-card__body {
         height: 45%;
 
@@ -138,23 +188,57 @@
         font-size: 0.8rem;
     }
 
+    .mito .c-card .c-card__body,
+    .turno .c-card .c-card__body {
+        height: 45%;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+
+        font-size: 0.8rem;
+    }
+
+    .mes .carousel .c-card__body .c-card__img,
     .liga .carousel .c-card__body .c-card__img {
         height: 3rem;
         width: 3rem;
     }
 
+    .mito .c-card__body .c-card__img,
+    .turno .c-card__body .c-card__img {
+        height: 3rem;
+        width: 3rem;
+    }
+
+    .mes .carousel .c-card .c-card__body .c-card__content,
     .liga .carousel .c-card .c-card__body .c-card__content {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
+    .mito .c-card .c-card__body .c-card__content,
+    .turno .c-card .c-card__body .c-card__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .mes .carousel .c-card .c-card__body .c-card__content span:first-child,
     .liga .carousel .c-card .c-card__body .c-card__content span:first-child {
         font-weight: 600;
         font-size: 1rem;
     }
 
+    .mito .c-card .c-card__body .c-card__content span:first-child,
+    .turno .c-card .c-card__body .c-card__content span:first-child {
+        font-weight: 600;
+        font-size: 1rem;
+    }
 
+
+    .mes .carousel .c-card .c-card__footer,
     .liga .carousel .c-card .c-card__footer {
         height: 35%;
 
@@ -168,6 +252,21 @@
         font-size: 0.8rem;
     }
 
+    .mito .c-card .c-card__footer,
+    .turno .c-card .c-card__footer {
+        height: 35%;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+
+        background-color: var(--primary);
+        border-radius: 0 0 0.7rem 0.7rem;
+
+        font-size: 0.8rem;
+    }
+
+    .mes .carousel .c-card .c-card__footer .c-card__content,
     .liga .carousel .c-card .c-card__footer .c-card__content {
         display: flex;
         flex-direction: column;
@@ -177,9 +276,23 @@
         color: #fff;
     }
 
+    .mito .c-card .c-card__footer .c-card__content,
+    .turno .c-card .c-card__footer .c-card__content {
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+
+        color: #fff;
+    }
+
+    .mes .carousel .c-card .c-card__footer .c-card__content span:first-child,
     .liga .carousel .c-card .c-card__footer .c-card__content span:first-child {
         font-size: 1.8rem;
     }
 
-
+    .mito .c-card .c-card__footer .c-card__content span:first-child,
+    .turno .c-card .c-card__footer .c-card__content span:first-child {
+        font-size: 1.8rem;
+    }
 }

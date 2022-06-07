@@ -32,9 +32,18 @@ def config(app):
 
     @app.route('/dashboard')
     def dashboard():
+        def meses(mes):
+            match mes:
+                case 4:
+                    return 'ABRIL'
+                case 5:
+                    return 'MAIO'
+                case 6:
+                    return 'JUNHO'
+
         context = {
             'title': 'Dashboard',
-            'rankin_liga': [
+            'ranking_liga': [
                 {
                     'total': usuario.total,
                     'posicao': f'{n}º',
@@ -44,6 +53,39 @@ def config(app):
                     'url_escudo': usuario.url_escudo,
                 }
                 for n, usuario in enumerate(RankingLigaView.query.all(), 1)
+            ],
+            'ranking_mes': [
+                {
+                    'total': usuario.total,
+                    'mes': meses(usuario.mes),
+                    'time_nome': usuario.time_nome,
+                    'primeiro_nome': usuario.primeiro_nome,
+                    'segundo_nome': usuario.segundo_nome,
+                    'url_escudo': usuario.url_escudo,
+                }
+                for n, usuario in enumerate(RankingMesView.query.all(), 1)
+            ],
+            'ranking_mito': [
+                {
+                    'total': usuario.total,
+                    'rodada': usuario.rodada_id,
+                    'time_nome': usuario.time_nome,
+                    'primeiro_nome': usuario.primeiro_nome,
+                    'segundo_nome': usuario.segundo_nome,
+                    'url_escudo': usuario.url_escudo,
+                }
+                for usuario in RankingMitoView.query.all()
+            ],
+            'ranking_turno': [
+                {
+                    'total': usuario.total,
+                    'turno': usuario.turno,
+                    'time_nome': usuario.time_nome,
+                    'primeiro_nome': usuario.primeiro_nome,
+                    'segundo_nome': usuario.segundo_nome,
+                    'url_escudo': usuario.url_escudo,
+                }
+                for usuario in RankingTurnoView.query.all()
             ]
         }
         return render_template('dashboard.html', **context)
