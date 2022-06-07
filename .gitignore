@@ -1,6 +1,5 @@
 venv
 .env
-*.md
 migrations
 __pycache__
 scripts.pgsql
