@@ -6,6 +6,10 @@ from cartolafcgw.models import RankingTurnoView, RankingLigaView, RankingMesView
 
 def config(app):
 
+    @app.route('/')
+    def index():
+        return redirect(url_for('dashboard'))
+
     @app.route('/api.gw-cartola')
     def api():
         cfc = CartolaFC(app.config['X_GLB_TOKEN'])
@@ -28,18 +32,19 @@ def config(app):
 
     @app.route('/dashboard')
     def dashboard():
-        context = {
-            'title': 'Dashboard',
-            'rankin_liga': [
-                {
-                    'total': usuario.total,
-                    'posicao': f'{n}º',
-                    'time_nome': usuario.time_nome,
-                    'primeiro_nome': usuario.primeiro_nome,
-                    'segundo_nome': usuario.segundo_nome,
-                    'url_escudo': usuario.url_escudo,
-                }
-                for n, usuario in enumerate(RankingLigaView.query.all(), 1)
-            ]
-        }
-        return render_template('dashboard.html', **context)
+        # context = {
+        #     'title': 'Dashboard',
+        #     'rankin_liga': [
+        #         {
+        #             'total': usuario.total,
+        #             'posicao': f'{n}º',
+        #             'time_nome': usuario.time_nome,
+        #             'primeiro_nome': usuario.primeiro_nome,
+        #             'segundo_nome': usuario.segundo_nome,
+        #             'url_escudo': usuario.url_escudo,
+        #         }
+        #         for n, usuario in enumerate(RankingLigaView.query.all(), 1)
+        #     ]
+        # }
+        # return render_template('dashboard.html', **context)
+        return 'oiiiii'
