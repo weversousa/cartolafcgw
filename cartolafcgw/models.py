@@ -81,7 +81,7 @@ class Ponto(db.Model):
 
 
 class RankingLigaView(db.Model):
-    __tablename__ = 'rankingliga'
+    __tablename__ = 'ranking_liga'
 
     total = db.Column(db.Numeric(5,2), primary_key=True)
     time_nome = db.Column(db.String(30))
@@ -95,7 +95,7 @@ primeiro_nome={self.primeiro_nome})'
 
 
 class RankingMesView(db.Model):
-    __tablename__ = 'rankingmes'
+    __tablename__ = 'ranking_mes'
 
     total = db.Column(db.Numeric(5,2), primary_key=True)
     mes = db.Column(db.Integer)
@@ -110,7 +110,7 @@ time_nome={self.time_nome}, primeiro_nome={self.primeiro_nome})'
 
 
 class RankingMitoView(db.Model):
-    __tablename__ = 'rankingmito'
+    __tablename__ = 'ranking_mito'
 
     total = db.Column(db.Numeric(5,2), primary_key=True)
     rodada_id = db.Column(db.Integer)
@@ -125,7 +125,7 @@ primeiro_nome={self.primeiro_nome})'
 
 
 class RankingTurnoView(db.Model):
-    __tablename__ = 'rankingturno'
+    __tablename__ = 'ranking_turno'
 
     total = db.Column(db.Numeric(5,2), primary_key=True)
     turno = db.Column(db.Integer)

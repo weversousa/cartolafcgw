@@ -103,7 +103,7 @@ def config(app):
         cfc = CartolaFC(app.config['X_GLB_TOKEN'])
         for t in cfc.liga('gw-altino-fc')['times']:
             u = Usuario.query.get(t['time_id'])
-            u.url_escudp = t['url_escudo_svg']
+            u.url_escudo = t['url_escudo_svg']
         db.session.commit()
 
 
