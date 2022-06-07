@@ -288,11 +288,11 @@
 
     .mes .carousel .c-card .c-card__footer .c-card__content span:first-child,
     .liga .carousel .c-card .c-card__footer .c-card__content span:first-child {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
     }
 
     .mito .c-card .c-card__footer .c-card__content span:first-child,
     .turno .c-card .c-card__footer .c-card__content span:first-child {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
     }
 }
