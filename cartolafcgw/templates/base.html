@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <title>Cartola GW | {% block title %}{% endblock %}</title>
+</head>
+<body>
+    <header>
+        {% block header %}
+            <img src="https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/cartola_svg_164/flamula/23/27/53/0075132320200722092753" alt="">
+            <h1>GW ALTINO FC</h1>
+        {% endblock %}
+    </header>
+    <main>{% block main %}{% endblock %}</main>
+</body>
+</html>

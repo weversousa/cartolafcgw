@@ -1,0 +1,185 @@
+@media screen and (max-width: 414px) {
+    body {
+        display: grid;
+        grid-template-columns: 100vw;
+        grid-template-rows: 7vh 93vh;
+        grid-template-areas: 'header' 'main';
+    }
+
+
+    main .liga {
+        height: 25%;
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        background-color: aqua;
+    }
+
+    main .mes {
+        height: 25%;
+        width: 100%;
+    }
+
+    main .mito {
+        height: 25%;
+        width: 100%;
+    }
+
+    main .turno {
+        height: 25%;
+        width: 100%;
+        background-color: bisque;
+    }
+
+    .carousel {
+        height: 80%;
+        width: 85%;
+
+        display: flex;
+        overflow: hidden;
+    }
+
+    .liga .carousel input {
+        display: none;
+    }
+
+    .liga .divLabel {
+        width: 85%;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    label {
+        height: 0.7rem;
+        width: 0.7rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--primary);
+        border-radius: 50%;
+        transition: all 1.0s;
+        cursor: pointer;
+    }
+
+    label:hover:after {
+        content: '';
+        height: 0.5rem;
+        width: 0.5rem;
+        background-color: var(--primary);
+        border-radius: 50%;
+        transition: all 1.0s;
+    }
+
+    #inputRadio1:checked ~ #img1 {
+        left: 0;
+        transition: all 1.0s;
+    }
+    
+    #inputRadio2:checked ~ #img1 {
+        margin-left: -100%;
+        transition: all 1.0s;
+    }
+    
+    #inputRadio3:checked ~ #img1 {
+        margin-left: -200%;
+        transition: all 1.0s;
+    }
+
+    #inputRadio4:checked ~ #img1 {
+        margin-left: -300%;
+        transition: all 1.0s;
+    }
+    
+    #inputRadio1:checked ~ div label[for='inputRadio1']:after,
+    #inputRadio2:checked ~ div label[for='inputRadio2']:after,
+    #inputRadio3:checked ~ div label[for='inputRadio3']:after,
+    #inputRadio4:checked ~ div label[for='inputRadio4']:after {
+        content: '';
+        height: 0.8rem;
+        width: 0.8rem;
+        background-color: var(--primary);
+        border-radius: 50%;
+        transition: all 1.4s;
+    }
+
+    .liga .carousel .c-card {
+        height: 100%;
+        width: 100%;
+        border-radius: 0 0 0.7rem 0.7rem;
+        background-color: #fff;
+        box-shadow: 0 0 0.9rem 0.1rem rgba(0, 0, 0, 0.3);
+
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+    }
+
+    .liga .carousel .c-card .c-card__title {
+        height: 20%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-size: 0.6rem;
+        box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.3);
+    }
+
+    .liga .carousel .c-card .c-card__body {
+        height: 45%;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+
+        font-size: 0.8rem;
+    }
+
+    .liga .carousel .c-card__body .c-card__img {
+        height: 3rem;
+        width: 3rem;
+    }
+
+    .liga .carousel .c-card .c-card__body .c-card__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .liga .carousel .c-card .c-card__body .c-card__content span:first-child {
+        font-weight: 600;
+        font-size: 1rem;
+    }
+
+
+    .liga .carousel .c-card .c-card__footer {
+        height: 35%;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+
+        background-color: var(--primary);
+        border-radius: 0 0 0.7rem 0.7rem;
+
+        font-size: 0.8rem;
+    }
+
+    .liga .carousel .c-card .c-card__footer .c-card__content {
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+
+        color: #fff;
+    }
+
+    .liga .carousel .c-card .c-card__footer .c-card__content span:first-child {
+        font-size: 1.8rem;
+    }
+
+
+}
