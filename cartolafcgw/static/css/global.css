@@ -9,14 +9,14 @@ html, body {
 }
 
 header {
-    height: 10vh;
+    height: 6vh;
     width: 100vw;
     background-color: var(--ligth);
     box-shadow: 0 0.1rem 0.2rem 0.1rem rgba(0, 0, 0, 0.3);
 }
 
 main {
-    height: 90vh;
+    height: 94vh;
     width: 100vw;
 
     display: flex;
