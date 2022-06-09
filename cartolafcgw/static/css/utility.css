@@ -1,0 +1,21 @@
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.shrink-0 {
+    flex-shrink: 0;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-evenly {
+    justify-content: space-evenly;
+}
+
+.gap

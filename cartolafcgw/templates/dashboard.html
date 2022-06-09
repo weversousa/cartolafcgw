@@ -2,142 +2,109 @@
 
 {% block title %}{{ title }}{% endblock %}
 
+{% block header %}
+
+{% endblock %}
+
 {% block main %}
-    <section class="liga">
-        <div class="titles">
-            <h2>Classificação geral</h2>
-            <h3>Zona de premiação do 1º ao 4º lugar</h3>
+<section class="wrapper">
+    {% for usuario in ranking_liga %}
+    <div class="c-card">
+        <div class="c-card__title">
+            <h2>RANKING GERAL</h2>
         </div>
-        <div class="cards">
-            <input type="radio" id="ligaPosicao-1" name="posicao" hidden checked>
-            <input type="radio" id="ligaPosicao-2" name="posicao" hidden>
-            <input type="radio" id="ligaPosicao-3" name="posicao" hidden>
-            <input type="radio" id="ligaPosicao-4" name="posicao" hidden>
-            {% for usuario in ranking_liga %}
-                <div id="c-cardLiga-{{ loop.index }}" class="c-card">
-                    <div class="c-card__body">
-                        <img src="{{ usuario.url_escudo }}" alt="" class="c-card__img">
-                        <div class="c-card__items">
-                            <span>{{ usuario.time_nome }}</span>
-                            <span>{{ usuario.usuario_nome }}</span>
-                        </div>
-                    </div>
-                    <div class="c-card__footer">
-                        <div class="c-card__items">
-                            <span>{{ usuario.posicao }}</span>
-                            <span>posição</span>
-                        </div>
-                        <div class="c-card__items">
-                            <span>{{ usuario.total }}</span>
-                            <span>pontos</span>
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
+        <div class="c-card__body">
+            <img src="{{ usuario['url_escudo'] }}" alt="" class="c-card__img">
+            <div>
+                <span>{{ usuario['time_nome'] }}</span>
+                <span>{{ usuario['usuario_nome'] }}</span>
+            </div>
         </div>
-        <div class="labels">
-            <label for="ligaPosicao-1" class="liga check"></label>
-            <label for="ligaPosicao-2" class="liga"></label>
-            <label for="ligaPosicao-3" class="liga"></label>
-            <label for="ligaPosicao-4" class="liga"></label>
+        <div class="c-card__footer">
+            <div>
+                <span>{{ loop.index }}º</span>
+                <span>rodada</span>
+            </div>
+            <div>
+                <span>{{ usuario['total'] }}</span>
+                <span>pontos</span>
+            </div>
         </div>
-    </section>
-
-    <section class="mes">
-        <div class="titles">
-            <h2>Classificação mensal</h2>
-            <h3>Zona de premiação 1º lugar</h3>
+    </div>
+    {% endfor %}
+</section>
+<section class="wrapper">
+    {% for usuario in ranking_mes %}
+    <div class="c-card">
+        <div class="c-card__title">
+            <h2>RANKING MENSAL</h2>
         </div>
-        <div class="cards">
-            <input type="radio" id="mesPosicao-1" name="posicao" hidden checked>
-            <input type="radio" id="mesPosicao-2" name="posicao" hidden>
-            <input type="radio" id="mesPosicao-3" name="posicao" hidden>
-            {% for usuario in ranking_mes %}
-                <div id="c-cardMes-{{ loop.index }}" class="c-card">
-                    <div class="c-card__body">
-                        <img src="{{ usuario.url_escudo }}" alt="" class="c-card__img">
-                        <div class="c-card__items">
-                            <span>{{ usuario.time_nome }}</span>
-                            <span>{{ usuario.usuario_nome }}</span>
-                        </div>
-                    </div>
-                    <div class="c-card__footer">
-                        <div class="c-card__items">
-                            <span>{{ usuario.mes_nome }}</span>
-                            <span>mês</span>
-                        </div>
-                        <div class="c-card__items">
-                            <span>{{ usuario.total }}</span>
-                            <span>pontos</span>
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
+        <div class="c-card__body">
+            <img src="{{ usuario['url_escudo'] }}" alt="" class="c-card__img">
+            <div>
+                <span>{{ usuario['time_nome'] }}</span>
+                <span>{{ usuario['usuario_nome'] }}</span>
+            </div>
         </div>
-        <div class="labels">
-            <label for="mesPosicao-1" class="mes check"></label>
-            <label for="mesPosicao-2" class="mes"></label>
-            <label for="mesPosicao-3" class="mes"></label>
+        <div class="c-card__footer">
+            <div>
+                <span>{{ usuario['mes_nome'] }}</span>
+                <span>mês</span>
+            </div>
+            <div>
+                <span>{{ usuario['total'] }}</span>
+                <span>pontos</span>
+            </div>
         </div>
-    </section>
-
-    <section class="mito">
-        <div class="titles">
-            <h2>Mitada!</h2>
-            <h3>Prêmiação ao maior pontuação em uma única rodada</h3>
+    </div>
+    {% endfor %}
+</section>
+<section>
+    <div class="c-card">
+        <div class="c-card__title">
+            <h2>MITADA</h2>
         </div>
-        <div class="cards">
-            {% for usuario in ranking_mito %}
-                <div id="c-card-{{ loop.index }}" class="c-card">
-                    <div class="c-card__body">
-                        <img src="{{ usuario.url_escudo }}" alt="" class="c-card__img">
-                        <div class="c-card__items">
-                            <span>{{ usuario.time_nome }}</span>
-                            <span>{{ usuario.usuario_nome }}</span>
-                        </div>
-                    </div>
-                    <div class="c-card__footer">
-                        <div class="c-card__items">
-                            <span>{{ usuario.rodada }}</span>
-                            <span>rodada</span>
-                        </div>
-                        <div class="c-card__items">
-                            <span>{{ usuario.total }}</span>
-                            <span>pontos</span>
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
+        <div class="c-card__body">
+            <img src="{{ ranking_mito['url_escudo'] }}" alt="" class="c-card__img">
+            <div>
+                <span>{{ ranking_mito['time_nome'] }}</span>
+                <span>{{ ranking_mito['usuario_nome'] }}</span>
+            </div>
         </div>
-    </section>
-
-    <section class="turno">
-        <div class="titles">
-            <h2>Classificação turno</h2>
-            <h3>Zona de premiação 1º lugar</h3>
+        <div class="c-card__footer">
+            <div>
+                <span>{{ ranking_mito['rodada'] }}ª</span>
+                <span>rodada</span>
+            </div>
+            <div>
+                <span>{{ ranking_mito['total'] }}</span>
+                <span>pontos</span>
+            </div>
         </div>
-        <div class="cards">
-            {% for usuario in ranking_turno %}
-                <div id="c-card-{{ loop.index }}" class="c-card">
-                    <div class="c-card__body">
-                        <img src="{{ usuario.url_escudo }}" alt="" class="c-card__img">
-                        <div class="c-card__items">
-                            <span>{{ usuario.time_nome }}</span>
-                            <span>{{ usuario.usuario_nome }}</span>
-                        </div>
-                    </div>
-                    <div class="c-card__footer">
-                        <div class="c-card__items">
-                            <span>1</span>
-                            <span>turno</span>
-                        </div>
-                        <div class="c-card__items">
-                            <span>{{ usuario.total }}</span>
-                            <span>pontos</span>
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
+    </div>
+</section>
+<section>
+    <div class="c-card">
+        <div class="c-card__title">
+            <h2>RANKING TURNO</h2>
         </div>
-    </section>
+        <div class="c-card__body">
+            <img src="{{ ranking_turno['url_escudo'] }}" alt="" class="c-card__img">
+            <div>
+                <span>{{ ranking_turno['time_nome'] }}</span>
+                <span>{{ ranking_turno['usuario_nome'] }}</span>
+            </div>
+        </div>
+        <div class="c-card__footer">
+            <div>
+                <span>1º</span>
+                <span>turno</span>
+            </div>
+            <div>
+                <span>{{ ranking_turno['total'] }}</span>
+                <span>pontos</span>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}

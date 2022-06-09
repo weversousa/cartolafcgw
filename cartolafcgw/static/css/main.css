@@ -1,4 +1,6 @@
 @import url('./config.css');
 @import url('./global.css');
+@import url('./utility.css');
+@import url('./components.css');
 @import url('./custom.css');
 @import url('./responsive.css');

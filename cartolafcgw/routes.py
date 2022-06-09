@@ -32,6 +32,8 @@ def config(app):
 
     @app.route('/dashboard')
     def dashboard():
+        ranking_turno = RankingTurnoView.query.first()
+        ranking_mito = RankingMitoView.query.first()
         context = {
             'title': 'Dashboard',
             'ranking_liga': [
@@ -54,25 +56,19 @@ def config(app):
                 }
                 for n, usuario in enumerate(RankingMesView.query.all(), 1)
             ],
-            'ranking_mito': [
-                {
-                    'total': usuario.total,
-                    'rodada': usuario.rodada_id,
-                    'time_nome': usuario.time_nome,
-                    'usuario_nome': usuario.usuario_nome,
-                    'url_escudo': usuario.url_escudo,
-                }
-                for usuario in RankingMitoView.query.all()
-            ],
-            'ranking_turno': [
-                {
-                    'total': usuario.total,
-                    'turno': usuario.turno,
-                    'time_nome': usuario.time_nome,
-                    'usuario_nome': usuario.usuario_nome,
-                    'url_escudo': usuario.url_escudo,
-                }
-                for usuario in RankingTurnoView.query.all()
-            ]
+            'ranking_mito': {
+                'total': ranking_mito.total,
+                'rodada': ranking_mito.rodada_id,
+                'time_nome': ranking_mito.time_nome,
+                'usuario_nome': ranking_mito.usuario_nome,
+                'url_escudo': ranking_mito.url_escudo,
+            },
+            'ranking_turno': {
+                'total': ranking_turno.total,
+                'turno': ranking_turno.turno,
+                'time_nome': ranking_turno.time_nome,
+                'usuario_nome': ranking_turno.usuario_nome,
+                'url_escudo': ranking_turno.url_escudo
+             }
         }
         return render_template('dashboard.html', **context)
