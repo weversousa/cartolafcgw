@@ -32,15 +32,6 @@ def config(app):
 
     @app.route('/dashboard')
     def dashboard():
-        def meses(mes):
-            match mes:
-                case 4:
-                    return 'ABRIL'
-                case 5:
-                    return 'MAIO'
-                case 6:
-                    return 'JUNHO'
-
         context = {
             'title': 'Dashboard',
             'ranking_liga': [
@@ -48,8 +39,7 @@ def config(app):
                     'total': usuario.total,
                     'posicao': f'{n}º',
                     'time_nome': usuario.time_nome,
-                    'primeiro_nome': usuario.primeiro_nome,
-                    'segundo_nome': usuario.segundo_nome,
+                    'usuario_nome': usuario.usuario_nome,
                     'url_escudo': usuario.url_escudo,
                 }
                 for n, usuario in enumerate(RankingLigaView.query.all(), 1)
@@ -57,10 +47,9 @@ def config(app):
             'ranking_mes': [
                 {
                     'total': usuario.total,
-                    'mes': meses(usuario.mes),
+                    'mes_nome': usuario.mes_nome[0:3],
                     'time_nome': usuario.time_nome,
-                    'primeiro_nome': usuario.primeiro_nome,
-                    'segundo_nome': usuario.segundo_nome,
+                    'usuario_nome': usuario.usuario_nome,
                     'url_escudo': usuario.url_escudo,
                 }
                 for n, usuario in enumerate(RankingMesView.query.all(), 1)
@@ -70,8 +59,7 @@ def config(app):
                     'total': usuario.total,
                     'rodada': usuario.rodada_id,
                     'time_nome': usuario.time_nome,
-                    'primeiro_nome': usuario.primeiro_nome,
-                    'segundo_nome': usuario.segundo_nome,
+                    'usuario_nome': usuario.usuario_nome,
                     'url_escudo': usuario.url_escudo,
                 }
                 for usuario in RankingMitoView.query.all()
@@ -81,8 +69,7 @@ def config(app):
                     'total': usuario.total,
                     'turno': usuario.turno,
                     'time_nome': usuario.time_nome,
-                    'primeiro_nome': usuario.primeiro_nome,
-                    'segundo_nome': usuario.segundo_nome,
+                    'usuario_nome': usuario.usuario_nome,
                     'url_escudo': usuario.url_escudo,
                 }
                 for usuario in RankingTurnoView.query.all()

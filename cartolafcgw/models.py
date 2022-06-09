@@ -85,28 +85,27 @@ class RankingLigaView(db.Model):
 
     total = db.Column(db.Numeric(5,2), primary_key=True)
     time_nome = db.Column(db.String(30))
-    primeiro_nome = db.Column(db.String(16))
-    segundo_nome = db.Column(db.String(10))
+    usuario_nome = db.Column(db.Text)
     url_escudo = db.Column(db.String)
 
     def __repr__(self):
         return f'RankingLigaView(total={self.total}, time_nome={self.time_nome}, \
-primeiro_nome={self.primeiro_nome})'
+usuario_nome={self.usuario_nome})'
 
 
 class RankingMesView(db.Model):
     __tablename__ = 'ranking_mes'
 
     total = db.Column(db.Numeric(5,2), primary_key=True)
-    mes = db.Column(db.Integer)
+    mes_nome = db.Column(db.Text)
     time_nome = db.Column(db.String(30))
-    primeiro_nome = db.Column(db.String(16))
-    segundo_nome = db.Column(db.String(10))
+    usuario_nome = db.Column(db.Text)
     url_escudo = db.Column(db.String)
 
     def __repr__(self):
-        return f'RankingMesView(total={self.total}, mes={self.mes}, \
-time_nome={self.time_nome}, primeiro_nome={self.primeiro_nome})'
+        return f'Ranking_nomeView(total={self.total}, \
+mes_nome={self.mes_nome}, time_nome={self.time_nome}, \
+usuario_nome={self.usuario_nome})'
 
 
 class RankingMitoView(db.Model):
@@ -115,13 +114,12 @@ class RankingMitoView(db.Model):
     total = db.Column(db.Numeric(5,2), primary_key=True)
     rodada_id = db.Column(db.Integer)
     time_nome = db.Column(db.String(30))
-    primeiro_nome = db.Column(db.String(16))
-    segundo_nome = db.Column(db.String(10))
+    usuario_nome = db.Column(db.Text)
     url_escudo = db.Column(db.String)
 
     def __repr__(self):
         return f'RankingMitoView(total={self.total}, time_nome={self.time_nome}, \
-primeiro_nome={self.primeiro_nome})'
+usuario_nome={self.usuario_nome})'
 
 
 class RankingTurnoView(db.Model):
@@ -130,10 +128,9 @@ class RankingTurnoView(db.Model):
     total = db.Column(db.Numeric(5,2), primary_key=True)
     turno = db.Column(db.Integer)
     time_nome = db.Column(db.String(30))
-    primeiro_nome = db.Column(db.String(16))
-    segundo_nome = db.Column(db.String(10))
+    usuario_nome = db.Column(db.Text)
     url_escudo = db.Column(db.String)
 
     def __repr__(self):
         return f'RankingTurnoView(total={self.total}, turno={self.turno}, \
-time_nome={self.time_nome}, primeiro_nome={self.primeiro_nome})'
+time_nome={self.time_nome}, usuario_nome={self.usuario_nome})'
