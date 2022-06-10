@@ -123,4 +123,15 @@
         </div>
     </div>
 </section>
+
+<section>
+    <div class="grafico"></div>
+</section>
+{% endblock %}
+
+
+{% block script %}
+    <script>
+        Plotly.newPlot(document.querySelector('.grafico'), {{ grafico | safe }})
+    </script>
 {% endblock %}

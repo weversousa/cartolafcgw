@@ -1,7 +1,8 @@
 from flask import redirect, render_template, url_for
 
 from cartolafcgw.api import CartolaFC
-from cartolafcgw.models import RankingTurnoView, RankingLigaView, RankingMesView, RankingMitoView
+from cartolafcgw.graficos import LigaGrafico
+from cartolafcgw.models import RankingTurnoView, RankingLigaView, RankingMesView, RankingMitoView, GraficoLigaView
 
 
 def config(app):
@@ -32,6 +33,7 @@ def config(app):
 
     @app.route('/dashboard')
     def dashboard():
+        grafico = LigaGrafico()
         ranking_turno = RankingTurnoView.query.first()
         ranking_mito = RankingMitoView.query.first()
         context = {
@@ -69,6 +71,7 @@ def config(app):
                 'time_nome': ranking_turno.time_nome,
                 'usuario_nome': ranking_turno.usuario_nome,
                 'url_escudo': ranking_turno.url_escudo
-             }
+             },
+             'grafico': grafico.criar_figura()
         }
         return render_template('dashboard.html', **context)

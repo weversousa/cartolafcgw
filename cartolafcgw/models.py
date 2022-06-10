@@ -134,3 +134,15 @@ class RankingTurnoView(db.Model):
     def __repr__(self):
         return f'RankingTurnoView(total={self.total}, turno={self.turno}, \
 time_nome={self.time_nome}, usuario_nome={self.usuario_nome})'
+
+
+class GraficoLigaView(db.Model):
+    __tablename__ = 'grafico_liga'
+
+    rodada_id = db.Column(db.Integer, primary_key=True)
+    posicao = db.Column(db.Integer)
+    time_nome = db.Column(db.Text, primary_key=True)
+
+    def __repr__(self):
+        return f'GraficoLigaView( total_acumulado={self. total_acumulado}, \
+time_nome={self.time_nome}'
