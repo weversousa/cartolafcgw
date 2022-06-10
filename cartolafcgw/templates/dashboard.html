@@ -11,6 +11,7 @@
 <section id="wrapperLiga" class="wrapper">
     {% for usuario in ranking_liga %}
     <div posicao="{{ loop.index }}" class="c-card">
+        <span>Premiação <br>em andamento</span>
         <div class="c-card__title">
             <h2>RANKING GERAL</h2>
         </div>
@@ -24,7 +25,7 @@
         <div class="c-card__footer">
             <div>
                 <span>{{ loop.index }}º</span>
-                <span>rodada</span>
+                <span>posição</span>
             </div>
             <div>
                 <span>{{ usuario['total'] }}</span>
@@ -43,6 +44,7 @@
 <section id="wrapperMes" class="wrapper">
     {% for usuario in ranking_mes %}
     <div posicao="{{ loop.index }}" class="c-card">
+        <span class="{% if loop.index != 1 %}ok{% endif %}">Premiação <br>{% if loop.index != 1 %}paga{% else %}em andamento{% endif %}</span>
         <div class="c-card__title">
             <h2>RANKING MENSAL</h2>
         </div>
@@ -70,10 +72,10 @@
     <span posicao="1" class="active"></span>
     <span posicao="2"></span>
     <span posicao="3"></span>
-    <span posicao="4"></span>
 </section>
 <section>
     <div class="c-card">
+        <span>Premiação <br>em andamento</span>
         <div class="c-card__title">
             <h2>MITADA</h2>
         </div>
@@ -98,6 +100,7 @@
 </section>
 <section>
     <div class="c-card">
+        <span>Premiação <br>em andamento</span>
         <div class="c-card__title">
             <h2>RANKING TURNO</h2>
         </div>
