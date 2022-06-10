@@ -1,9 +1,32 @@
-@media screen and (max-width: 414px) {
+@media screen and (orientation: portrait) {
 
-    body {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
+    main section {
+        height: 20%;
+    }
+
+    main section,
+    main section div.indicador {
+        width: 75%;
+    }
+
+}
+
+@media screen and (orientation: landscape) {
+
+    main {
+        gap: 1%;
+    }
+
+    main section {
+        height: 40%;
+    }
+
+    main section {
+        width: 30%;
+    }
+
+    main section div.indicador {
+        width: 22%;
     }
 
 }
