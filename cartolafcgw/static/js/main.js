@@ -1,39 +1,31 @@
-// document.querySelectorAll('input[name="posicao"]').forEach(input => {
-//     input.addEventListener('change', () => {
-//         document.querySelectorAll('label').forEach(label => {
-//             if (input.id === label.getAttribute('for')) {
-//                 label.classList.add('check');
-//             } else {
-//                 label.classList.remove('check');
-//             }
-//         });
-//     });
-//     // console.log(input.checked)
-// });
+let active = 1;
 
-
-const wrapper = document.querySelector('section.wrapper');
-let pressed = false
-let startX = 0;
-
-wrapper.addEventListener('mousedown', function (event) {
-    pressed = true;
-    startX = event.clientX;
-    this.style.cursor = 'grabbing';
+document.querySelector('#wrapperLiga').addEventListener('scroll', function (event) {
+    document.querySelectorAll('#wrapperLiga .c-card').forEach(function (card) {
+        if (card.getBoundingClientRect().x < 60) {
+            active = card.getAttribute('posicao');
+        }
+    });
+    document.querySelectorAll('#indicatorLiga span').forEach(function (span) {
+        if (span.getAttribute('posicao') == active) {
+            span.classList.add('active');
+        } else {
+            span.classList.remove('active');
+        }
+    });
 });
 
-wrapper.addEventListener('mouseleave', function (event) {
-    pressed = false;
-});
-
-wrapper.addEventListener('mouseup', function (event) {
-    pressed = true;
-    this.style.cursor = 'grab';
-});
-
-wrapper.addEventListener('mousemove', function (event) {
-    if (!pressed) {
-        return
-    }
-    this.scrollLeft += startX - event.clientX;
+document.querySelector('#wrapperMes').addEventListener('scroll', function (event) {
+    document.querySelectorAll('#wrapperMes .c-card').forEach(function (card) {
+        if (card.getBoundingClientRect().x < 60) {
+            active = card.getAttribute('posicao');
+        }
+    });
+    document.querySelectorAll('#indicatorMes span').forEach(function (span) {
+        if (span.getAttribute('posicao') == active) {
+            span.classList.add('active');
+        } else {
+            span.classList.remove('active');
+        }
+    });
 });

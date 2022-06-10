@@ -3,13 +3,14 @@
 {% block title %}{{ title }}{% endblock %}
 
 {% block header %}
-
+<img src="https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/cartola_svg_164/flamula/23/27/53/0075132320200722092753" alt="">
+<h1>GW ALTINO FC</h1>
 {% endblock %}
 
 {% block main %}
-<section class="wrapper">
+<section id="wrapperLiga" class="wrapper">
     {% for usuario in ranking_liga %}
-    <div class="c-card">
+    <div posicao="{{ loop.index }}" class="c-card">
         <div class="c-card__title">
             <h2>RANKING GERAL</h2>
         </div>
@@ -33,9 +34,15 @@
     </div>
     {% endfor %}
 </section>
-<section class="wrapper">
+<section id="indicatorLiga" class="indicator">
+    <span posicao="1" class="active"></span>
+    <span posicao="2"></span>
+    <span posicao="3"></span>
+    <span posicao="4"></span>
+</section>
+<section id="wrapperMes" class="wrapper">
     {% for usuario in ranking_mes %}
-    <div class="c-card">
+    <div posicao="{{ loop.index }}" class="c-card">
         <div class="c-card__title">
             <h2>RANKING MENSAL</h2>
         </div>
@@ -58,6 +65,12 @@
         </div>
     </div>
     {% endfor %}
+</section>
+<section id="indicatorMes" class="indicator">
+    <span posicao="1" class="active"></span>
+    <span posicao="2"></span>
+    <span posicao="3"></span>
+    <span posicao="4"></span>
 </section>
 <section>
     <div class="c-card">

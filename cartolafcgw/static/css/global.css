@@ -13,6 +13,18 @@ header {
     width: 100vw;
     background-color: var(--ligth);
     box-shadow: 0 0.1rem 0.2rem 0.1rem rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header h1 {
+    font-size: 1.5rem;
+}
+
+header img {
+    height: 2.5rem;
+    width: 2.5rem;
 }
 
 main {
@@ -21,7 +33,7 @@ main {
 
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.2rem;
     align-items: center;
     justify-content: center;
 }
@@ -33,6 +45,32 @@ main section {
     display: flex;
     gap: 1rem;
     overflow-x: auto;
+}
+
+main section.indicator {
+    height: 2%;
+    display: flex;
+    justify-content: center;
+    margin-top: -0.5rem;
+}
+
+main section.indicator span {
+    height: 0.5rem;
+    width: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--primary);
+    border-radius: 50%;
+}
+
+main section.indicator span.active:after {
+    content: '';
+    height: 75%;
+    width: 75%;
+    background-color: var(--primary);
+    border-radius: 50%;
+    transition: 1.0s;
 }
 
 main section.wrapper {
