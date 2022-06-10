@@ -8,10 +8,6 @@ html, body {
     background-color: var(--dark);
 }
 
-body {
-    max-height: 100vh;
-}
-
 header {
     height: 8vh;
     width: 100vw;
@@ -32,9 +28,6 @@ header img {
 }
 
 main {
-    height: 92vh;
-    width: 100vw;
-
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
