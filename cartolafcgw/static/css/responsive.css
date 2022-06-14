@@ -44,17 +44,17 @@
         height: 90%;
         display: flex;
         gap:0.5em;
-        overflow-x: hidden;
+        overflow-x: auto;
         cursor: grab;
 
         /* arrastar, depedende do pai ter scroll-snap-align */
         scroll-snap-type: x mandatory;
         scroll-behavior: smooth;
-        scrollbar-width: none;
+        scrollbar-width: none; /* firefox */
     }
 
     .cards::-webkit-scrollbar {
-        display: none;
+        display: none; /* chrome */
     }
     
     .c-card {
