@@ -1,127 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
-
 * {
     margin: 0;
     padding: 0;
+    outline: none;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
 }
 
-body {
-    height: 100vh;
-    width: 100vw;
-    flex-direction: column;
-    background-color: var(--dark);
-}
-
 header {
-    height: 10%;
+    height: 10vh;
+    background: var(--ligth);
 }
 
 main {
-    height: 90%;
-    gap: 5%;
-}
-
-header, main {
-    width: 100%;
-}
-
-body,
-header,
-main,
-main section,
-main section div.indicador,
-main section div.indicador span {
+    height: 90vh;
     display: flex;
-}
-
-body, header, main {
     flex-direction: column;
-}
-
-header {
-    background-color: var(--ligth);
-    box-shadow: 0 0.1rem 0.2rem 0.1rem rgba(0, 0, 0, 0.3);
-}
-
-header div:first-child {
-    height: 70%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.7rem;
-    box-shadow: 0.1rem 0 0.2rem 0.1rem rgba(0, 0, 0, 0.3);
-}
-
-header div.avisos {
-    height: 30%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-left: 0.3rem;
-    padding-right: 0.3rem;
-    font-size: 0.6rem;
-}
-
-
-header img {
-    height: 2.4rem;
-    width: 2.4rem;
-}
-
-
-main,
-main section div.indicador,
-main section div.indicador span {
-    align-items: center;
-    justify-content: center;
-}
-
-main div.indicador {
-    display: none;
-}
-
-
-main section {
-    gap: 1rem;
-    overflow-x: auto;
-}
-
-main section:not(.indicador) {
-    box-shadow: 0 0 0.7rem 0.1rem rgba(0, 0, 0, 0.3);
-
-}
-
-main section.wrapper {
-    cursor: grab;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    scrollbar-width: none;
-}
-
-main section.wrapper::-webkit-scrollbar {
-    display: none;
-}
-
-main section div.indicador {
-    position: absolute;
-    align-self: flex-end;
-    height: 2%;
-    margin-bottom: -1.3rem;
-    gap: 1rem;
-}
-
-main section div.indicador span {
-    height: 10px;
-    width: 10px;
-    border: 1px solid var(--primary);
-    border-radius: 50%;
-}
-
-main section div.indicador span.active {
-    height: 14px;
-    width: 14px;
-    background-color: var(--primary);
+    background: var(--dark);
 }

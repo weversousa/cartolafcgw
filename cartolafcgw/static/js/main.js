@@ -6,7 +6,7 @@ document.querySelector('#wrapperLiga').addEventListener('scroll', function (even
             active = card.getAttribute('posicao');
         }
     });
-    document.querySelectorAll('#indicatorLiga span').forEach(function (span) {
+    document.querySelectorAll('#indicatorLiga > div > span').forEach(function (span) {
         if (span.getAttribute('posicao') == active) {
             span.classList.add('active');
         } else {
@@ -21,7 +21,7 @@ document.querySelector('#wrapperMes').addEventListener('scroll', function (event
             active = card.getAttribute('posicao');
         }
     });
-    document.querySelectorAll('#indicatorMes span').forEach(function (span) {
+    document.querySelectorAll('#indicatorMes > div > span').forEach(function (span) {
         if (span.getAttribute('posicao') == active) {
             span.classList.add('active');
         } else {

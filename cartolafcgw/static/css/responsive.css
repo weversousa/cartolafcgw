@@ -1,32 +1,193 @@
 @media screen and (orientation: portrait) {
 
-    main section {
-        height: 20%;
+    header div:first-child {
+        height: 70%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.7rem;
+        box-shadow: 0.1rem 0 0.2rem 0.1rem rgba(0, 0, 0, 0.3);
+        color: var(--primary);
     }
 
-    main section,
-    main section div.indicador {
-        width: 75%;
+    header div.avisos {
+        height: 30%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 0.3rem;
+        padding-right: 0.3rem;
+        font-size: 0.6rem;
+    }
+
+    header img {
+        height: 2.4rem;
+        width: 2.4rem;
+    }
+
+    main > section {
+        height: 25%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    main > section > .container {
+        height: 85%;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cards {
+        height: 90%;
+        display: flex;
+        gap:0.5em;
+        overflow-x: hidden;
+        cursor: grab;
+
+        /* arrastar, depedende do pai ter scroll-snap-align */
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+    }
+
+    .cards::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .c-card {
+        position: relative;
+        height: 90%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        background-color: var(--ligth);
+        box-shadow: 0 0 10px 2px #0000004d;
+        flex-shrink: 0;
+
+        /* arrastar, depedende do pai ter scroll-snap-type */
+        scroll-snap-align: start;
+    }
+
+    .cards .c-card {
+        height: 100%;
+    }
+
+    .c-card > span {
+        position: absolute;
+        float: left;
+        top: 0.2rem;
+        right: 0.2rem;
+        font-size: 0.5rem;
+        color: #ff0000;
+        font-weight: 500;
+    }
+    
+    .c-card > span.ok {
+        color: #008000;
+    }
+
+    .c-card__title {
+        height: 20%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 70%;
+        text-transform: uppercase;
+        box-shadow: 0 5px 5px -6px;
+    }
+
+    .c-card__body {
+        height: 44%;
+        display: flex;
+    }
+
+    div.c-card__img {
+        height: 100%;
+        width: 40%;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+    }
+
+    img.c-card__img {
+        height: 80%;
+        width: 80%;
+    }
+
+    .c-card__names {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 0.8em;
+    }
+
+    .c-card__names span:first-child {
+        font-weight: 600;
+        font-size: 1.1em;
+    }
+
+    .c-card__footer {
+        height: 40%;
+        display: flex;
+        align-content: center;
+        justify-content: space-evenly;
+        background-color: var(--primary);
+        color: var(--ligth);
+    }
+
+    .c-card__footer > div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .c-card__footer > div > span:first-child {
+        font-size: 1.6em;
+    }
+
+    .indicator {
+        height: 10%;
+        width: 100%;
+    }
+    
+    .indicator > div {
+        height: 100%;
+        width: 50%;
+        margin: auto;
+        padding-top: 0.8em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1em;
+    }
+
+    .indicator > div > span {
+        height: 0.7em;
+        width: 0.7em;
+        border: 1px solid var(--primary);
+        border-radius: 50%;
+    }
+
+    .indicator > div > span.active {
+        height: 0.8em;
+        width: 0.8em;
+        background-color: var(--primary);
     }
 
 }
 
+
 @media screen and (orientation: landscape) {
 
-    main {
-        gap: 1%;
-    }
-
-    main section {
-        height: 40%;
-    }
-
-    main section {
-        width: 30%;
-    }
-
-    main section div.indicador {
-        width: 22%;
+    main > section {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
 }
