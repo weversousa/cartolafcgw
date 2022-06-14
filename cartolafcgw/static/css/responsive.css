@@ -148,6 +148,7 @@
 
     .c-card__footer > div > span:first-child {
         font-size: 1.4em;
+        font-weight: 900;
     }
 
     .indicator {
