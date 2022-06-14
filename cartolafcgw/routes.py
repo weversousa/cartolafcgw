@@ -54,8 +54,8 @@ def config(app):
             status_mercado = 'em manutenção'
         grafico = LigaGrafico()
         ranking_turno = RankingTurnoView.query.first()
-        ranking_mito = RankingMitoView.query.first()[0]
-        atualizado_ate = db.session.query(db.func.max(Ponto.rodada_id)).first()
+        ranking_mito = RankingMitoView.query.first()
+        atualizado_ate = db.session.query(db.func.max(Ponto.rodada_id)).first()[0]
         context = {
             'title': 'Dashboard',
             'ranking_liga': [
