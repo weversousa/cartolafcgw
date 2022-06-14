@@ -136,6 +136,7 @@
         justify-content: space-evenly;
         background-color: var(--primary);
         color: var(--ligth);
+        font-size: 0.8em;
     }
 
     .c-card__footer > div {
@@ -146,7 +147,7 @@
     }
 
     .c-card__footer > div > span:first-child {
-        font-size: 1.6em;
+        font-size: 1.4em;
     }
 
     .indicator {
