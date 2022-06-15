@@ -126,37 +126,35 @@
                 </div>
             </div>
         </div>
-        <div></div>
     </div>
 </section>
 
 <section>
-<div class="container">
-    <div class="c-card">
-        <div class="c-card__title">
-            <h2>líder turno</h2>
-        </div>
-        <div class="c-card__body">
-            <div class="c-card__img">
-                <img src="{{ ranking_turno['url_escudo'] }}" alt="" class="c-card__img">
+    <div class="container">
+        <div class="c-card">
+            <div class="c-card__title">
+                <h2>líder turno</h2>
             </div>
-            <div class="c-card__names">
-                <span>{{ ranking_turno['time_nome'] }}</span>
-                <span>{{ ranking_turno['usuario_nome'] }}</span>
+            <div class="c-card__body">
+                <div class="c-card__img">
+                    <img src="{{ ranking_turno['url_escudo'] }}" alt="" class="c-card__img">
+                </div>
+                <div class="c-card__names">
+                    <span>{{ ranking_turno['time_nome'] }}</span>
+                    <span>{{ ranking_turno['usuario_nome'] }}</span>
+                </div>
             </div>
-        </div>
-        <div class="c-card__footer">
-            <div>
-                <span>1º</span>
-                <span>turno</span>
-            </div>
-            <div>
-                <span>{{ ranking_turno['total'] }}</span>
-                <span>pontos</span>
+            <div class="c-card__footer">
+                <div>
+                    <span>1º</span>
+                    <span>turno</span>
+                </div>
+                <div>
+                    <span>{{ ranking_turno['total'] }}</span>
+                    <span>pontos</span>
+                </div>
             </div>
         </div>
     </div>
-    <div></div>
-</div>
 </section>
 {% endblock %}
