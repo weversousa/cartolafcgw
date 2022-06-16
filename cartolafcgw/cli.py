@@ -83,7 +83,7 @@ def config(app):
         """Insere os pontos da api da Globo na tabela pontos"""
         cfc = CartolaFC(app.config['X_GLB_TOKEN'])
         times = Usuario.query.all()
-        for rodada in range(11, 12):
+        for rodada in range(12, 13):
             for time in times:
                 try:
                     pontos = sum([

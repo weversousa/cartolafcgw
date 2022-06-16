@@ -1,11 +1,25 @@
 @media screen and (orientation: portrait) {
 
+    header {
+        height: 10vh;
+    }
+
     header div:first-child {
-        font-size: 0.7rem;
+        font-size: 0.9rem;
+    }
+
+    header img {
+        height: 2.6rem;
+        width: 2.6rem;
     }
 
     main > section {
         height: 22.5vh;
+    }
+
+    main > section > .container {
+        height: 75%;
+        width: 85%;
     }
 
     .c-card > span {
@@ -13,20 +27,17 @@
     }
 
     .c-card__title {
-        font-size: 70%;
+        font-size: 0.6rem;
     }
 
     .c-card__names,
     .c-card__footer {
-        font-size: 0.8em;
-    }
-    
-    .c-card__names span:first-child {
-        font-size: 1.1em;
+        font-size: 0.8rem;
     }
 
+    .c-card__names span:first-child,
     .c-card__footer > div > span:first-child {
-        font-size: 1.4em;
+        font-size: 1.2em;
     }
 
 }
@@ -34,27 +45,42 @@
 
 @media screen and (orientation: landscape) {
 
+    header {
+        height: 20vh;
+        position: fixed;
+        z-index: 1;
+    }
+
 
     header img {
-        height: 1.6rem;
-        width: 1.6rem;
+        height: 2.6rem;
+        width: 2.6rem;
     }
 
     main > section {
-        height: 90vh;
+        height: 80vh;
+    }
+
+    main > section:first-child {
+        margin-top: 20vh;
+    }
+
+    main > section > .container {
+        height: 60%;
+        width: 75%;
     }
 
     .c-card > span {
-        font-size: 0.8rem;
+        font-size: 0.6rem;
     }
 
     .c-card__title {
-        font-size: 1.4em;
+        font-size: 80%;
     }
 
     .c-card__names,
     .c-card__footer {
-        font-size: 1.3em;
+        font-size: 1.1em;
     }
     
     .c-card__names span:first-child,

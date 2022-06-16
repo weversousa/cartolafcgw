@@ -7,11 +7,12 @@
 }
 
 header {
+    width: 100vw;
     background: var(--ligth);
 }
 
 header > div:first-child {
-    height: 70%;
+    height: 65%;
     width: 100%;
     display: flex;
     align-items: center;
@@ -21,7 +22,7 @@ header > div:first-child {
 }
 
 header div.avisos {
-    height: 30%;
+    height: 35%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -30,10 +31,6 @@ header div.avisos {
     font-size: 0.6rem;
 }
 
-header img {
-    height: 1.4rem;
-    width: 1.4rem;
-}
 
 main {
     display: flex;
@@ -48,8 +45,6 @@ main section {
 }
 
 main > section > .container {
-    height: 85%;
-    width: 90%;
     display: flex;
     flex-direction: column;
 }
