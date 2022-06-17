@@ -2,7 +2,7 @@ let active = 1;
 
 document.querySelector('#wrapperLiga').addEventListener('scroll', function (event) {
     document.querySelectorAll('#wrapperLiga .c-card').forEach(function (card) {
-        if (card.getBoundingClientRect().x < 60) {
+        if (card.getBoundingClientRect().x < 200) {
             active = card.getAttribute('posicao');
         }
     });
@@ -17,7 +17,7 @@ document.querySelector('#wrapperLiga').addEventListener('scroll', function (even
 
 document.querySelector('#wrapperMes').addEventListener('scroll', function (event) {
     document.querySelectorAll('#wrapperMes .c-card').forEach(function (card) {
-        if (card.getBoundingClientRect().x < 60) {
+        if (card.getBoundingClientRect().x < 200) {
             active = card.getAttribute('posicao');
         }
     });

@@ -3,10 +3,30 @@ from flask import redirect, render_template, url_for
 from cartolafcgw.api import CartolaFC
 from cartolafcgw.database import db
 from cartolafcgw.graficos import LigaGrafico
-from cartolafcgw.models import RankingTurnoView, RankingLigaView, RankingMesView, RankingMitoView, GraficoLigaView, Ponto
+from cartolafcgw.models import RankingTurnoView, RankingLigaView, RankingMesView, RankingMitoView, GraficoLigaView, Usuario, Ponto
+
+
+def update_pontos(inicio, fim, cfc):
+    times = Usuario.query.all()
+    for rodada in range(inicio, fim):
+        for time in times:
+            try:
+                pontos = sum([
+                    atleta['pontos_num']
+                    for atleta in cfc.time(time.id, rodada)['atletas']
+                ])
+            except KeyError:
+                pontos = 0.0
+
+            try:
+                db.session.add(Ponto(time.id, rodada, pontos))
+                db.session.commit()
+            except Exception as e:
+                pass
 
 
 def config(app):
+    cfc = CartolaFC(app.config['X_GLB_TOKEN'])
 
     @app.route('/')
     def index():
@@ -15,7 +35,6 @@ def config(app):
     @app.route('/api.gw-cartola')
     def api():
         cfc = CartolaFC(app.config['X_GLB_TOKEN'])
-
         # status_mercado
         # 4 Mercado em manutenção
         # 2 fechado
@@ -44,7 +63,11 @@ def config(app):
 
     @app.route('/dashboard')
     def dashboard():
-        cfc = CartolaFC(app.config['X_GLB_TOKEN'])
+        atualizado_ate = Ponto.query.order_by(Ponto.rodada_id.desc()).first()
+        rodada_atual = cfc.mercado()['rodada_atual']
+        if atualizado_ate.rodada_id < rodada_atual - 1:
+            update_pontos(atualizado_ate.rodada_id + 1, rodada_atual, cfc)
+            atualizado_ate = rodada_atual - 1
         mercado = cfc.mercado()
         if mercado['status_mercado'] == 1:
             status_mercado = 'aberto'
@@ -55,7 +78,6 @@ def config(app):
         grafico = LigaGrafico()
         ranking_turno = RankingTurnoView.query.first()
         ranking_mito = RankingMitoView.query.first()
-        atualizado_ate = db.session.query(db.func.max(Ponto.rodada_id)).first()[0]
         context = {
             'title': 'Dashboard',
             'ranking_liga': [
@@ -95,6 +117,6 @@ def config(app):
              'grafico': grafico.criar_figura(),
              'rodada_atual': mercado['rodada_atual'],
              'status_mercado': status_mercado,
-             'atualizado_ate': atualizado_ate
+             'atualizado_ate': atualizado_ate.rodada_id
         }
         return render_template('dashboard.html', **context)

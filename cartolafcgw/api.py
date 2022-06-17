@@ -3,7 +3,7 @@ from requests.api import get
 
 class CartolaFC:
     def __init__(self, x_glb_token=None):
-        self.cartolafc_url = 'https://api.cartolafc.globo.com'
+        self.cartolafc_url = 'https://api.cartola.globo.com'  # cartolafc
         self._x_glb_token = x_glb_token
 
     def rodadas(self):
