@@ -64,7 +64,7 @@
         <div id="wrapperMes" class="cards">
             {% for time in ranking_mes %}
             <div class="c-card" posicao="{{ loop.index }}">
-                <span class="{% if loop.index != 1 %}ok{% endif %}">Premiação <br>{% if loop.index != 1 %}paga{% else %}em andamento{% endif %}</span>
+                <span class="{% if time['mes'] < mes_atual %}ok{% endif %}">Premiação <br>{% if time['mes'] < mes_atual %}paga{% else %}em andamento{% endif %}</span>
                 <div class="c-card__title">
                     <h2>líder mensal</h2>
                 </div>
@@ -103,6 +103,7 @@
 <section>
     <div class="container">
         <div class="c-card">
+            <span>Premiação <br>em andamento</span>
             <div class="c-card__title">
                 <h2>mitada</h2>
             </div>
@@ -132,6 +133,7 @@
 <section>
     <div class="container">
         <div class="c-card">
+            <span class="{% if rodada_atual >= 20 %}ok{% endif %}">Premiação <br>{% if rodada_atual >= 20 %}paga{% else %}em andamento{% endif %}</span>
             <div class="c-card__title">
                 <h2>líder turno</h2>
             </div>

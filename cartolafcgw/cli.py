@@ -72,7 +72,7 @@ def config(app):
         """Insere os rodadas da api da Globo na tabela rodadas"""
         cfc = CartolaFC(app.config['X_GLB_TOKEN'])
         for rodada in cfc.rodadas():
-            if rodada['rodada_id'] == 16:
+            if rodada['rodada_id'] == 20:
                 break
             rodada = Rodada(rodada['rodada_id'], rodada['inicio'], rodada['fim'])
             db.session.add(rodada)
@@ -83,7 +83,7 @@ def config(app):
         """Insere os pontos da api da Globo na tabela pontos"""
         cfc = CartolaFC(app.config['X_GLB_TOKEN'])
         times = Usuario.query.all()
-        for rodada in range(12, 13):
+        for rodada in range(1, 15):
             for time in times:
                 try:
                     pontos = sum([

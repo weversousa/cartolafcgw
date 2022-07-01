@@ -1,3 +1,5 @@
+from datetime import date
+
 from flask import redirect, render_template, url_for
 
 from cartolafcgw.api import CartolaFC
@@ -93,6 +95,7 @@ def config(app):
             'ranking_mes': [
                 {
                     'total': usuario.total,
+                    'mes': usuario.mes,
                     'mes_nome': usuario.mes_nome[0:3],
                     'time_nome': usuario.time_nome,
                     'usuario_nome': usuario.usuario_nome,
@@ -116,6 +119,7 @@ def config(app):
              },
              'grafico': grafico.criar_figura(),
              'rodada_atual': mercado['rodada_atual'],
+             'mes_atual': date.today().month,
              'status_mercado': status_mercado,
              'atualizado_ate': atualizado_ate.rodada_id
         }

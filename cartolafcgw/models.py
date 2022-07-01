@@ -97,6 +97,7 @@ class RankingMesView(db.Model):
     __tablename__ = 'ranking_mes'
 
     total = db.Column(db.Numeric(5,2), primary_key=True)
+    mes = db.Column(db.Numeric)
     mes_nome = db.Column(db.Text)
     time_nome = db.Column(db.String(30))
     usuario_nome = db.Column(db.Text)
